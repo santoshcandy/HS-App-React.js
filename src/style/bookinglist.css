@@ -1,0 +1,44 @@
+.booking-card {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  .booking-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+  
+  .services ul {
+    padding-left: 20px;
+    list-style-type: none;
+  }
+  
+  .services li {
+    margin-bottom: 5px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .booking-card {
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .booking-card {
+      margin-bottom: 15px;
+    }
+  }
+  
