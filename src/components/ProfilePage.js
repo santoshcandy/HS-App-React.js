@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Card, Spinner, Alert, Container, Button } from "react-bootstrap";
 import HeadingSection from './HeadingSection'
+import API_BASE_URL from "../config";
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,7 @@ const ProfilePage = () => {
           return;
         }
 
-        const response = await axios.get("http://127.0.0.1:8000/api/auth/profile/", {
+        const response = await axios.get(` ${API_BASE_URL}/auth/profile/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

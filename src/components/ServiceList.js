@@ -4,6 +4,7 @@ import { Card, Container, Row, Col, Spinner, Alert } from "react-bootstrap";
 import axios from "axios";
 import HeadingSection from "./HeadingSection";
 import "../style/ServiceList.css"; // Import the updated CSS
+import API_BASE_URL from "../config";
 
 function ServiceList({ selectedServices, setSelectedServices }) {
   const { categoryId } = useParams();
@@ -13,7 +14,7 @@ function ServiceList({ selectedServices, setSelectedServices }) {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/service-categories/") // Adjust URL as needed
+      .get(`${API_BASE_URL}/service-categories/`) // Adjust URL as needed
       .then((response) => {
         const data = response.data;
         const selectedCategory = data.find((cat) => cat.id.toString() === categoryId);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Container, Row, Col, Spinner, Alert, Button } from "react-bootstrap";
 import axios from "axios";
+import API_BASE_URL from "../config";
 
 const AllBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -18,7 +19,7 @@ const AllBookings = () => {
     }
 
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/bookings/all", {
+      const response = await axios.get(`${API_BASE_URL}/bookings/all`, {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: "application/json",

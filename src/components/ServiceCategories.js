@@ -3,8 +3,9 @@ import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../style/ServiceCategories.css";
+import API_BASE_URL from "../config";
 
-const API_URL = "http://127.0.0.1:8000/api/service-categories/";
+const API_URL = `${API_BASE_URL}/service-categories/`;
 const DEFAULT_IMAGE = "https://tse1.mm.bing.net/th?id=OIP.XENqLPmzNiqIw31OiisFNwHaHa&pid=Api&P=0&h=220";
 
 function ServiceCategories() {

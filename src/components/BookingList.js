@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Container, Row, Col, Spinner, Alert, Button } from "react-bootstrap";
 import axios from "axios";
 import "../style/bookinglist.css"; // Assuming the CSS file is named BookingList.css
+import API_BASE_URL from "../config";
 
 const BookingList = () => {
   const [bookings, setBookings] = useState([]);
@@ -20,7 +21,7 @@ const BookingList = () => {
 
     // Make API call to fetch bookings
     axios
-      .get("http://127.0.0.1:8000/api/bookings/", {
+      .get(` ${API_BASE_URL}/bookings/`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Accept": "application/json",  // Ensure the API returns JSON
