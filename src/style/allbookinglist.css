@@ -1,0 +1,42 @@
+/* Booking Status Styles */
+.status-pending {
+    color: #f39c12;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.status-confirmed {
+    color: #2ecc71;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.status-completed {
+    color: #16a085;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* Status Icon Styling */
+.status-icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.status-pending .status-icon::before {
+    content: '\2022'; /* Bullet point */
+    color: #f39c12;
+}
+
+.status-confirmed .status-icon::before {
+    content: '\2713'; /* Checkmark */
+    color: #2ecc71;
+}
+
+.status-completed .status-icon::before {
+    content: '\1F4C8'; /* Chart icon */
+    color: #16a085;
+}

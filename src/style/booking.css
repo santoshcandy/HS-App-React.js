@@ -1,17 +1,19 @@
+/* Booking Container */
 .booking-container {
     max-width: 500px;
     margin: auto;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    background: white;
-    animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    animation: fadeIn 0.6s ease-out;
 }
 
+/* Animation for fade-in effect */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
@@ -19,44 +21,101 @@
     }
 }
 
+/* Title Styling */
 .title {
     text-align: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2C3E50; /* Dark Blue-gray */
+    margin-bottom: 15px;
 }
 
+/* Subtitle Styling */
 .subtitle {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: 500;
     margin-top: 15px;
-    color: #555;
+    color: #7F8C8D; /* Muted gray */
 }
 
+/* Service Item Styling */
 .service-item {
     font-size: 1rem;
-    color: #444;
-    background: #f8f9fa;
-    padding: 10px;
+    color: #2C3E50; /* Dark Blue-gray for readability */
+    background: #ecf0f1; /* Light gray background */
+    padding: 12px;
     border-radius: 8px;
-    margin-bottom: 5px;
-}
-
-.booking-button {
-    width: 100%;
-    background: #007bff;
-    border: none;
-    padding: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 8px;
+    margin-bottom: 8px;
     transition: background 0.3s ease-in-out;
 }
 
-.booking-button:hover {
-    background: #0056b3;
+.service-item:hover {
+    background: #bdc3c7; /* Light Hover Gray */
 }
 
+/* Booking Button Styling */
+.booking-button {
+    width: 100%;
+    background: #3498db; /* Bright Blue */
+    border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.booking-button:hover {
+    background: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Status Badge Styling */
+.status-pending {
+    color: #f39c12;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.status-confirmed {
+    color: #2ecc71;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.status-completed {
+    color: #16a085;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* Status Icon Styling */
+.status-icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.status-pending .status-icon::before {
+    content: '\2022'; /* Bullet point for Pending */
+    color: #f39c12;
+}
+
+.status-confirmed .status-icon::before {
+    content: '\2713'; /* Checkmark for Confirmed */
+    color: #2ecc71;
+}
+
+.status-completed .status-icon::before {
+    content: '\1F4C8'; /* Completed/Check mark for Completed */
+    color: #16a085;
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 600px) {
     .booking-container {
         width: 90%;
@@ -64,10 +123,10 @@
     }
 
     .title {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Adjusted for mobile */
     }
 
     .service-item {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Smaller font size for mobile */
     }
 }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Card, Button, Container, Row, Col, Spinner, Alert } from "react-bootstrap";
+import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../style/ServiceCategories.css";
 
 const API_URL = "http://127.0.0.1:8000/api/service-categories/";
+const DEFAULT_IMAGE = "https://tse1.mm.bing.net/th?id=OIP.XENqLPmzNiqIw31OiisFNwHaHa&pid=Api&P=0&h=220";
 
 function ServiceCategories() {
   const [categories, setCategories] = useState([]);
@@ -18,7 +20,7 @@ function ServiceCategories() {
         setCategories(response.data);
         setLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setError("Failed to load categories");
         setLoading(false);
       });
@@ -30,21 +32,21 @@ function ServiceCategories() {
   return (
     <Container>
       <h2 className="my-4 text-center">Service Categories</h2>
-      <Row>
+      <Row className="g-4">
         {categories.map((category) => (
-          <Col md={6} lg={4} key={category.id}>
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Title>{category.name}</Card.Title>
-                <Card.Text>{category.description}</Card.Text>
-                <Button
-                  variant="primary"
-                  onClick={() => navigate(`/category/${category.id}`)}
-                >
-                  View Services
-                </Button>
-              </Card.Body>
-            </Card>
+          <Col xs={4} sm={4} md={4} key={category.id} className="category-col">
+            <div className="service-card" onClick={() => navigate(`/category/${category.id}`)}>
+              <div className="image-container">
+                <img src={DEFAULT_IMAGE} alt={category.name} className="service-image" />
+              </div>
+              <div className="card-body">
+              <Card.Text className="service-description">
+  <span className="scrolling-text">{category.description}</span>
+</Card.Text>
+
+                 <h5 className="service-title">{category.name}</h5>
+              </div>
+            </div>
           </Col>
         ))}
       </Row>

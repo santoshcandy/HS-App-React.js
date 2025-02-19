@@ -12,7 +12,6 @@ const Login = () => {
         setLoading(true);
 
         try {
-            // const response = await axios.post(`${API_BASE_URL}/auth/login/`, { phone_number: phone });
             const response = await axios.post(`${API_BASE_URL}/auth/login/`, { phone });
 
             if (response.data.access) {
@@ -20,12 +19,17 @@ const Login = () => {
                 localStorage.setItem("access_token", response.data.access);
                 localStorage.setItem("refresh_token", response.data.refresh);
                 localStorage.setItem("user", JSON.stringify(response.data.user));
+                
+                // Store user type separately for role-based notifications
+                localStorage.setItem("user_type", response.data.user.user_type);
 
                 // Set default authorization header for future requests
                 axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.access}`;
 
                 alert("Login successful!");
-                window.location.href = "/"; // Redirect after login
+                
+                // Refresh the page to update the authentication state
+                window.location.reload();
             } else {
                 throw new Error("Invalid response from server");
             }

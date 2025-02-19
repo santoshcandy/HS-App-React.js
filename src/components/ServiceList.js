@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react"; 
-import { useParams, useNavigate } from "react-router-dom";
-import { Card, Button, Container, Row, Col, Spinner, Alert, Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Card, Container, Row, Col, Spinner, Alert } from "react-bootstrap";
 import axios from "axios";
 import HeadingSection from "./HeadingSection";
-import { Link } from "react-router-dom";  // <-- Add this import
+import "../style/ServiceList.css"; // Import the updated CSS
 
-function ServiceList() {
+function ServiceList({ selectedServices, setSelectedServices }) {
   const { categoryId } = useParams();
-  const navigate = useNavigate();
   const [category, setCategory] = useState(null);
-  const [selectedServices, setSelectedServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/service-categories/")
+      .get("http://127.0.0.1:8000/api/service-categories/") // Adjust URL as needed
       .then((response) => {
         const data = response.data;
         const selectedCategory = data.find((cat) => cat.id.toString() === categoryId);
@@ -33,28 +31,13 @@ function ServiceList() {
       });
   }, [categoryId]);
 
-  // Load selected services from localStorage on mount
-  useEffect(() => {
-    const savedServices = localStorage.getItem(`selectedServices_${categoryId}`);
-    if (savedServices) {
-      setSelectedServices(JSON.parse(savedServices));
-    }
-  }, [categoryId]);
-
   const handleServiceSelect = (service) => {
-    setSelectedServices((prev) => {
-      const exists = prev.some((s) => s.id === service.id);
-      const updatedServices = exists ? prev.filter((s) => s.id !== service.id) : [...prev, service];
-
-      // Store in localStorage
-      localStorage.setItem(`selectedServices_${categoryId}`, JSON.stringify(updatedServices));
-
-      return updatedServices;
-    });
-  };
-
-  const proceedToBooking = () => {
-    navigate("/selected-services", { state: { selectedServices } });
+    // If service is already selected, remove it; otherwise, add it
+    if (selectedServices.some((selected) => selected.id === service.id)) {
+      setSelectedServices(selectedServices.filter((selected) => selected.id !== service.id));
+    } else {
+      setSelectedServices([...selectedServices, service]);
+    }
   };
 
   if (loading) return <Spinner animation="border" className="d-block mx-auto mt-5" />;
@@ -63,25 +46,29 @@ function ServiceList() {
   return (
     <>
       <HeadingSection />
-      <Container>
+      <Container className="mb-5 pb-5">
         <h2 className="my-4 text-center">{category.name} Services</h2>
         <p className="text-center">{category.description}</p>
 
-        <Row>
+        <Row className="service-list">
           {category.services.length > 0 ? (
             category.services.map((service) => (
-              <Col md={6} lg={4} key={service.id}>
-                <Card className="mb-4">
-                  <Card.Body>
-                    <Card.Title>{service.name}</Card.Title>
-                    <Card.Text>{service.description}</Card.Text>
-                    <h5>Price: ₹{service.price}</h5>
-                    <Form.Check
-                      type="checkbox"
-                      label="Select Service"
-                      checked={selectedServices.some((s) => s.id === service.id)}
-                      onChange={() => handleServiceSelect(service)}
+              <Col xs={12} sm={6} md={4} key={service.id} className="category-col">
+                <Card
+                  className={`service-card ${selectedServices.some((selected) => selected.id === service.id) ? "selected" : ""}`}
+                  onClick={() => handleServiceSelect(service)} // Pass the entire service object
+                >
+                  <div className="image-container">
+                    <img
+                      src="https://tse1.mm.bing.net/th?id=OIP.XENqLPmzNiqIw31OiisFNwHaHa&pid=Api&P=0&h=220"
+                      alt={service.name}
+                      className="service-image"
                     />
+                  </div>
+                  <Card.Body>
+                    <Card.Title className="service-title service-titlee">{service.name}</Card.Title>
+                    <Card.Text className="service-description scrolling-text">{service.description}</Card.Text>
+                    <h5 className="service-price">₹{service.price}</h5>
                   </Card.Body>
                 </Card>
               </Col>
@@ -92,16 +79,6 @@ function ServiceList() {
             </Alert>
           )}
         </Row>
-
-        <div className="text-center mt-4">
-          <Button onClick={proceedToBooking} disabled={selectedServices.length === 0}>
-            Proceed to Booking
-          </Button>
-        </div>
-
-        <div className="text-center mt-3">
-          <Link to="/" className="btn btn-primary">Back to Categories</Link>
-        </div>
       </Container>
     </>
   );

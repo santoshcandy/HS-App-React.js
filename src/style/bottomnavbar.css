@@ -1,71 +1,90 @@
+/* Bottom Navbar */
 .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #1A3A6F; /* Deep Blue */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 10px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1A3A6F; /* Deep Blue */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Items */
+.nav-item {
+  color: #C9A24D; /* Gold Text */
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  flex: 1;
+  padding: 8px;
+}
+
+.nav-item i {
+  font-size: 24px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.nav-item:hover {
+  color: #E0CBA8; /* Light Gold/White */
+}
+
+.nav-item.active {
+  color: #E0CBA8; /* Light Gold/White */
+  font-weight: bold;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .bottom-nav {
+    padding: 8px 0;
   }
-  
+
   .nav-item {
-    color: #C9A24D; /* Gold Text */
-    text-decoration: none;
-    text-align: center;
-    font-size: 16px;
-    flex: 1;
-    padding: 8px;
+    font-size: 14px;
+    padding: 10px 0;
   }
-  
+
   .nav-item i {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 4px;
-    display: block;
   }
-  
-  .nav-item:hover {
-    color: #E0CBA8; /* Light Gold/White */
+}
+
+@media (max-width: 480px) {
+  .bottom-nav {
+    padding: 6px 0;
   }
-  
-  .nav-item.active {
-    color: #E0CBA8; /* Light Gold/White */
-    font-weight: bold;
+
+  .nav-item {
+    font-size: 12px;
+    padding: 12px 0;
   }
-  
-  /* Mobile Responsive Styles */
-  @media (max-width: 768px) {
-    .bottom-nav {
-      padding: 8px 0;
-    }
-  
-    .nav-item {
-      font-size: 14px;
-      padding: 10px 0;
-    }
-  
-    .nav-item i {
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
+
+  .nav-item i {
+    font-size: 18px;
+    margin-bottom: 2px;
   }
-  
-  @media (max-width: 480px) {
-    .bottom-nav {
-      padding: 6px 0;
-    }
-  
-    .nav-item {
-      font-size: 12px;
-      padding: 12px 0;
-    }
-  
-    .nav-item i {
-      font-size: 18px;
-      margin-bottom: 2px;
-    }
+}
+
+/* Content Area (Ensure it's not hidden behind the navbar) */
+Container {
+  padding-bottom: 60px; /* Adjust this to match the navbar height */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  Container {
+    padding-bottom: 70px; /* Adjust for smaller screens */
   }
-  
+}
+
+@media (max-width: 480px) {
+  Container {
+    padding-bottom: 80px; /* Adjust for very small screens */
+  }
+}

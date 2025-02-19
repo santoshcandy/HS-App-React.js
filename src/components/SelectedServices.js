@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, Card, Button, Alert } from "react-bootstrap";
-
-const SelectedServices = () => {
-  const location = useLocation();
+import "../style/selectedservice.css"
+import HeadingSection from './HeadingSection'
+const SelectedServices = ({ selectedServices }) => {
   const navigate = useNavigate();
-  const { selectedServices } = location.state || { selectedServices: [] };
-
-  const [selectedServicesState, setSelectedServices] = useState(selectedServices || []);
 
   const proceedToBooking = () => {
-    navigate("/booking", { state: { selectedServices: selectedServicesState } });
+    // Directly pass the selectedServices to the booking page
+    navigate("/booking", { state: { selectedServices } });
   };
 
   return (
-    <Container className="mt-4">
+    <>
+    <HeadingSection/>
+    <Container className="mt-4 mb-5 pb-5">
       <h2 className="text-center">Selected Services</h2>
 
-      {selectedServicesState.length === 0 ? (
+      {selectedServices.length === 0 ? (
         <Alert variant="warning" className="text-center">
           No services selected. Please go back and select services.
         </Alert>
       ) : (
         <>
-          {selectedServicesState.map((service, index) => (
+          {selectedServices.map((service, index) => (
             <Card key={index} className="mb-3">
               <Card.Body>
                 <Card.Title>{service.name}</Card.Title>
                 <Card.Text>Price: ₹{service.price}</Card.Text>
+                <Card.Text>{service.description}</Card.Text>
               </Card.Body>
             </Card>
           ))}
@@ -38,6 +39,7 @@ const SelectedServices = () => {
         </>
       )}
     </Container>
+    </>
   );
 };
 

@@ -28,7 +28,9 @@ const BookingList = () => {
       })
       .then((response) => {
         console.log("Bookings fetched:", response.data); // Log the response data to check what is returned
-        setBookings(response.data);  // Set the bookings data
+        // Sort bookings by booking_date in descending order (latest first)
+        const sortedBookings = response.data.sort((a, b) => new Date(b.booking_date) - new Date(a.booking_date));
+        setBookings(sortedBookings);  // Set the sorted bookings data
         setLoading(false);
       })
       .catch((err) => {
@@ -51,7 +53,7 @@ const BookingList = () => {
   }
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 mb-5 pb-5">
       <h2 className="text-center mb-4">Booking List</h2>
 
       <Row>
@@ -64,7 +66,11 @@ const BookingList = () => {
                     <Card.Title>Booking ID: {booking.id}</Card.Title>
                     <Card.Text>
                       <strong>Customer:</strong> {booking.customer} <br />
-                      <strong>Status:</strong> {booking.status} <br />
+                      <strong>Status:</strong> 
+                      <span className={`status-${booking.status.toLowerCase()}`}>
+                        <span className="status-icon"></span>{booking.status}
+                      </span>
+                      <br />
                       <strong>Location:</strong> {booking.service_location} <br />
                       <strong>Booking Date:</strong> {new Date(booking.booking_date).toLocaleString()} <br />
                     </Card.Text>

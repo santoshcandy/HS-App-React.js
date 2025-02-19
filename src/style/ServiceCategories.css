@@ -1,0 +1,120 @@
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+  gap: 12px; /* Spacing between the cards */
+  padding: 10px;
+}
+
+.service-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid transparent; /* No border initially */
+  box-shadow: 0px 4px 10px rgba(26, 58, 111, 0.2); /* Subtle shadow */
+  background-color: #fff; /* White background for cards */
+}
+
+.service-card:hover {
+  transform: scale(1.05); /* Slight hover effect */
+  box-shadow: 0px 6px 20px rgba(26, 58, 111, 0.3); /* Stronger shadow on hover */
+  border-color: #C9A24D; /* Gold border on hover */
+}
+
+.image-container {
+  width: 100%;
+  height: 120px; /* Increased height for images */
+  overflow: hidden;
+  border: 2px solid #C9A24D; /* Gold Border */
+  box-shadow: 0px 4px 10px rgba(26, 58, 111, 0.5); /* Blue Shadow */
+  border-radius: 8px;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 8px;
+}
+
+.service-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 8px;
+  color: #1A3A6F; /* Deep blue title */
+}
+
+.service-description {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.service-price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #C9A24D; /* Gold */
+  margin-top: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .service-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    gap: 8px;
+  }
+
+  .service-card {
+    padding: 6px;
+    border: none;
+    box-shadow: none;
+  }
+
+  .image-container {
+     
+    height: 90px; /* Slightly smaller image for mobile */
+  }
+
+  .service-title {
+    font-size: 10px; /* Reduced title size for mobile */
+  }
+
+  .service-description {
+    font-size: 10px; /* Reduced description size for mobile */
+  }
+
+  .service-price {
+    font-size: 12px; /* Reduced price size for mobile */
+  }
+}
+
+/* Square images on larger screens */
+@media (min-width: 769px) {
+  .image-container {
+    height: 120px; /* Square image for larger screens */
+    width: 120px; /* Ensure square shape */
+    margin: auto;
+  }
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Apply scrolling animation only on mobile */
+@media (max-width: 768px) {
+  .scrolling-text {
+    font-size: 15px;
+    display: inline-block;
+    animation: scrollText 15s linear infinite;
+  }
+}
