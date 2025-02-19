@@ -77,7 +77,7 @@ const Booking = () => {
                     service_location: formData.service_location,
                     date: formData.date,
                     time: formData.time,
-                    technician: 3
+                     
                 },
                 {
                     headers: {
