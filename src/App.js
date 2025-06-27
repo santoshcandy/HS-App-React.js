@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/services" element={<Home />} />
-          <Route path="*" element={<HomePorfolio />} />
+          <Route path="/" element={<HomePorfolio />} />
           <Route path="/category/:categoryId" element={<ServiceList selectedServices={selectedServices} setSelectedServices={setSelectedServices} />} />
           <Route path='/selected-services' element={<SelectedServices selectedServices={selectedServices} />} />
           <Route path="/booking" element={<Booking />} />

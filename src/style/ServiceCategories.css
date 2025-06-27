@@ -64,7 +64,11 @@
   color: #C9A24D; /* Gold */
   margin-top: 5px;
 }
-
+.service-icon {
+  color: #1A3A6F;
+  width: 42px;
+  height: 42px;
+}
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .service-list {
@@ -93,6 +97,11 @@
 
   .service-price {
     font-size: 12px; /* Reduced price size for mobile */
+  }
+  .service-icon {
+    padding-top: 10px;
+    /* width: 42px;
+    height: 45px; */
   }
 }
 

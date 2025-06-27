@@ -2,8 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Card, Button, Alert } from "react-bootstrap";
 import "../style/selectedservice.css"
-import HeadingSection from './HeadingSection'
-const SelectedServices = ({ selectedServices }) => {
+ const SelectedServices = ({ selectedServices }) => {
   const navigate = useNavigate();
 
   const proceedToBooking = () => {
@@ -13,7 +12,7 @@ const SelectedServices = ({ selectedServices }) => {
 
   return (
     <>
-    <HeadingSection/>
+     
     <Container className="mt-4 mb-5 pb-5">
       <h2 className="text-center">Selected Services</h2>
 

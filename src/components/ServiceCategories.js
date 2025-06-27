@@ -5,8 +5,29 @@ import axios from "axios";
 import "../style/ServiceCategories.css";
 import API_BASE_URL from "../config";
 
+// Import icons
+import {
+  FaTools,
+  FaBolt,
+  FaSnowflake,
+  FaHome,
+  FaWater,
+  FaPaintRoller,
+  FaCar,
+} from "react-icons/fa";
+
+// Icon map
+const iconMap = {
+  Plumbing: <FaWater className="service-icon" />,
+  Electrical: <FaBolt className="service-icon" />,
+  AC: <FaSnowflake className="service-icon" />,
+  HomeRepair: <FaTools className="service-icon" />,
+  Painting: <FaPaintRoller className="service-icon" />,
+  CarWash: <FaCar className="service-icon" />,
+  Default: <FaHome className="service-icon" />,
+};
+
 const API_URL = `${API_BASE_URL}/service-categories/`;
-const DEFAULT_IMAGE = "https://tse1.mm.bing.net/th?id=OIP.XENqLPmzNiqIw31OiisFNwHaHa&pid=Api&P=0&h=220";
 
 function ServiceCategories() {
   const [categories, setCategories] = useState([]);
@@ -27,8 +48,10 @@ function ServiceCategories() {
       });
   }, []);
 
-  if (loading) return <Spinner animation="border" className="d-block mx-auto mt-5" />;
-  if (error) return <Alert variant="danger" className="text-center">{error}</Alert>;
+  if (loading)
+    return <Spinner animation="border" className="d-block mx-auto mt-5" />;
+  if (error)
+    return <Alert variant="danger" className="text-center">{error}</Alert>;
 
   return (
     <Container>
@@ -36,16 +59,19 @@ function ServiceCategories() {
       <Row className="g-4">
         {categories.map((category) => (
           <Col xs={4} sm={4} md={4} key={category.id} className="category-col">
-            <div className="service-card" onClick={() => navigate(`/category/${category.id}`)}>
+            <div
+              className="service-card"
+              onClick={() => navigate(`/category/${category.id}`)}
+            >
               <div className="image-container">
-                <img src={DEFAULT_IMAGE} alt={category.name} className="service-image" />
+                {/* Replace image with icon while keeping same structure */}
+                {iconMap[category.name] || iconMap.Default}
               </div>
               <div className="card-body">
-              <Card.Text className="service-description">
-  <span className="scrolling-text">{category.description}</span>
-</Card.Text>
-
-                 <h5 className="service-title">{category.name}</h5>
+                <Card.Text className="service-description">
+                  <span className="scrolling-text">{category.description}</span>
+                </Card.Text>
+                <h5 className="service-title">{category.name}</h5>
               </div>
             </div>
           </Col>
