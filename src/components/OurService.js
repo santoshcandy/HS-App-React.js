@@ -1,10 +1,8 @@
-// OurService.js
-import '../style/oruservice.css'; // Or create a separate CSS if needed
- // src/components/OurService.js
+import '../style/oruservice.css';
 import React, { useState, useEffect } from 'react';
 import { FaTools, FaTint, FaBolt } from 'react-icons/fa';
 import { MdAcUnit } from 'react-icons/md';
- 
+
 const services = [
   {
     icon: <FaTools size={50} color="#007BFF" />,
@@ -30,11 +28,16 @@ const services = [
 
 const OurService = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [flip, setFlip] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % services.length);
-    }, 3000); // 3 seconds per service
+      setFlip(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % services.length);
+        setFlip(false);
+      }, 400); // half the duration of flip transition
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -42,15 +45,19 @@ const OurService = () => {
 
   return (
     <div className="container my-5 service-container">
-      <h2 className="section-title text-center mb-4">Our Popular Services in Chennai</h2>
-
-      <div className="service-card d-flex justify-content-center align-items-center">
-        <div className="card p-4 shadow-lg border-0 rounded">
-          <div className="icon mb-3 d-flex justify-content-center">
+      <h2 className="section-title text-center mb-4">Best Services in Chennai</h2>
+      <div className="flip-wrapper">
+        <div className={`flip-card ${flip ? 'flipped' : ''}`}>
+          <div className="flip-card-content card-front">
             {currentService.icon}
+            <h3 className="text-center mt-3">{currentService.name}</h3>
+            <p className="text-center">{currentService.description}</p>
           </div>
-          <h3 className="text-center mb-3">{currentService.name}</h3>
-          <p className="text-center">{currentService.description}</p>
+          <div className="flip-card-content card-back">
+            {currentService.icon}
+            <h3 className="text-center mt-3">{currentService.name}</h3>
+            <p className="text-center">{currentService.description}</p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,16 +1,15 @@
 import React from 'react'
-import SearchBar from '../components/SearchBar'
-import ServiceCategories from '../components/ServiceCategories'
-import Footer from '../components/Footer'
-import HeadingSection from '../components/HeadingSection'
+ import ServiceCategories from '../components/ServiceCategories'
+ 
+// import HeadingSection from '../components/HeadingSection'
 
 const Home = () => {
   return (
     <div>
-      < HeadingSection/>
-      <SearchBar/>
+      {/* < HeadingSection/> */}
+       
       <ServiceCategories/>
-      <Footer/>
+      
     </div>
   )
 }

@@ -1,65 +1,63 @@
-/* General container */
+/* oruservice.css */
+
 .service-container {
+  perspective: 1000px; /* Creates 3D effect */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.flip-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.flip-card {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-card-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  min-height: 40vh;
-  background: #f2f2f2;
+  flex-direction: column;
 }
 
-/* Service card */
-.service-card {
-  background: #fff;
-  padding: 2px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  max-width: 90%;
-  width: 100%;
-  transition: all 0.3s ease;
-  animation: fadeIn 0.5s ease-in-out;
+.card-front,
+.card-back {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-/* Icon */
-.service-card .icon {
-  font-size: 48px;
-  margin-bottom: 15px;
+.card-front {
+  z-index: 2;
 }
 
-/* Text */
-.service-card h2 {
-  margin: 10px 0;
-  font-size: 1.5rem;
-  color: #333;
+.card-back {
+  transform: rotateY(180deg);
 }
 
-.service-card p {
-  font-size: 1rem;
-  color: #666;
+.flipped {
+  transform: rotateY(180deg);
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* Responsive styles */
-@media (min-width: 600px) {
-  .service-card {
-    max-width: 400px;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .flip-wrapper {
+    height: 350px;
   }
 
-  .service-card h2 {
-    font-size: 1.8rem;
-  }
-
-  .service-card p {
-    font-size: 1.1rem;
-  }
-
-  .service-card .icon {
-    font-size: 64px;
+  .flip-card-content {
+    padding: 15px;
   }
 }

@@ -27,7 +27,7 @@ const ServiceAreas = () => {
   );
 
   return (
-    <div className="service-areas-container">
+    <div className="service-areas-container mb-4">
       <h2 className="area-title">We Serve All Over Chennai</h2>
       <div className="area-grid">
         {visibleAreas.map((area, index) => (

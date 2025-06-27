@@ -1,76 +1,61 @@
-.heading-container {
-  background-color: #1A3A6F; /* Deep Blue */
-  color: #C9A24D; /* Gold Text */
-  text-align: center;
-  padding: 50px 20px;
-  border-radius: 8px;
-  /* animation: fadeIn 2s ease-in-out, slideBackground 10s ease-in-out infinite; Added background color change animation */
+.header-container {
+  background-color: #1a3a6f;
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 10px 10px;
 }
 
-.heading-title {
-  font-size: 48px;
+/* Brand text */
+.brand-text {
+  line-height: 1.2;
+}
+
+.brand-highlight {
   font-weight: bold;
-  margin: 0;
+  font-size: 18px;
+  color: #C9A24D;
 }
 
-.heading-highlight {
+.brand-sub {
+  font-size: 14px;
+  color: #E0CBA8;
+}
+
+/* Logo SVG */
+.logo svg {
+  display: block;
+}
+
+/* Search bar (always shown) */
+.search-wrapper {
+  width: 100%;
+  background-color: white;
+  border-radius: 25px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background: none;
+  width: 100%;
+}
+
+/* Profile Icon */
+.profile-icon {
+  color: #C9A24D;
+  cursor: pointer;
+}
+.search-icon {
   color: #C9A24D; /* Gold */
-  display: inline-block;
-  animation: bounce 1s infinite alternate;
-}
-
-.heading-home {
-  display: inline-block;
-}
-
-.heading-subtitle {
-  font-size: 20px;
-  color: #E0CBA8; /* Light Gold/White */
-  margin-top: 10px;
-  animation: slideIn 1s ease-in-out;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes bounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-2px); }
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideBackground {
-  0% { background-color: #1A3A6F; } /* Deep Blue */
-  50% { background-color: #ffffff; } /* Gold */
-  100% { background-color: #1A3A6F; } /* Deep Blue */
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .heading-title {
-    font-size: 28px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .heading-highlight {
-    font-size: 28px;
-  }
-
-  .heading-home {
-    font-size: 15px;
-    color: #E0CBA8; /* Light Gold */
-    display: block;
-  }
-
-  .heading-subtitle {
-    font-size: 16px;
-  }
+  margin-right: 8px;
+  font-size: 16px;
 }
