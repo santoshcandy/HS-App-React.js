@@ -12,6 +12,7 @@ import BottomNav from './components/BottomNav';
 import AllBookings from './components/AllBookings';
 import BookingNotifications from './components/BookingNotifications';
 import ProfilePage from './components/ProfilePage';
+import HomePorfolio from './pages/HomePorfolio';
 
 function App() {
   const [selectedServices, setSelectedServices] = useState([]);
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Home />} />
+          <Route path="/home" element={<HomePorfolio />} />
           <Route path="/category/:categoryId" element={<ServiceList selectedServices={selectedServices} setSelectedServices={setSelectedServices} />} />
           <Route path='/selected-services' element={<SelectedServices selectedServices={selectedServices} />} />
           <Route path="/booking" element={<Booking />} />
@@ -28,7 +30,7 @@ function App() {
           <Route path='/all/booking-list' element={<AllBookings />} />
           <Route path='/profile' element={<ProfilePage />} />
         </Routes>
-        <BottomNav />
+        {/* <BottomNav /> */}
       </div>
       <BookingNotifications />
     </Router>

@@ -1,0 +1,47 @@
+/* ServiceAreas.css */
+.service-areas-container {
+  background-color: #fff3e0;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.area-title {
+  font-size: 1.8rem;
+  color: #e64a19;
+  margin-bottom: 20px;
+}
+
+.area-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeArea 0.5s ease-in-out;
+  min-width: 220px;
+  margin: auto;
+}
+
+.area-card h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+@keyframes fadeArea {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile friendly */
+@media (max-width: 480px) {
+  .area-card {
+    padding: 15px 20px;
+  }
+
+  .area-card h3 {
+    font-size: 1.2rem;
+  }
+}
