@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card, Container, Row, Col, Spinner, Alert } from "react-bootstrap";
 import axios from "axios";
-import HeadingSection from "./HeadingSection";
-import "../style/ServiceList.css"; // Import the updated CSS
+ import "../style/ServiceList.css"; // Import the updated CSS
 import API_BASE_URL from "../config";
 
 function ServiceList({ selectedServices, setSelectedServices }) {
@@ -46,7 +45,7 @@ function ServiceList({ selectedServices, setSelectedServices }) {
 
   return (
     <>
-      <HeadingSection />
+       
       <Container className="mb-5 pb-5">
         <h2 className="my-4 text-center">{category.name} Services</h2>
         <p className="text-center">{category.description}</p>
