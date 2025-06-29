@@ -1,0 +1,82 @@
+.quick-support-section {
+  background-color: #f0f6ff;
+  padding: 40px 20px;
+  border-top: 3px solid #c9a24d;
+}
+
+.quick-support-title {
+  font-size: 1.8rem;
+  color: #1a3a6f;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.quick-support-subtext {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.support-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.support-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1a3a6f;
+  border: 2px solid #1a3a6f;
+  transition: 0.3s ease;
+}
+
+.support-btn:hover {
+  background-color: #1a3a6f;
+  color: white;
+}
+
+.whatsapp {
+  border-color: #25d366;
+  color: #25d366;
+}
+
+.whatsapp:hover {
+  background-color: #25d366;
+  color: white;
+}
+
+.call {
+  border-color: #ff5722;
+  color: #ff5722;
+}
+
+.call:hover {
+  background-color: #ff5722;
+  color: white;
+}
+
+.chat {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.chat:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .support-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

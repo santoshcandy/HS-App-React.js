@@ -53,7 +53,7 @@ const ProfilePage = () => {
 
   return (
     <>
-    <HeadingSection/>
+     
     <Container className="mt-4">
       <Card className="p-4">
         <h2 className="text-center">User Profile</h2>

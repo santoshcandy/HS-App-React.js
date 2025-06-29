@@ -7,7 +7,8 @@ import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 import AnimatedButton from '../components/AnimatedButton';
 import WarrantySection from '../components/WarrantySection';
- 
+ import QuickSupport from '../components/QuickSupport';
+
  
  const HomePorfolio = () => {
     return ( 
@@ -19,6 +20,7 @@ import WarrantySection from '../components/WarrantySection';
             <WhyChooseUs/>
             <ServiceAreas/>
             <Testimonials/>
+             <QuickSupport/>
             <Footer/>
             </>
 

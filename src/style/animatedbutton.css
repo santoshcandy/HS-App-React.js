@@ -1,9 +1,12 @@
-.animated-button {
-  position: fixed;                  /* Fixed to the viewport */
-  bottom: 20%;                      /* 20% from the bottom of screen */
-  left: 20px;                       /* Stick to left edge with padding */
-  z-index: 1000;                    /* Stay on top of other elements */
+.animated-button-wrapper {
+  position: fixed;
+  bottom: 20%;
+  left: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
 
+.animated-button {
   padding: 14px 40px;
   font-size: 22px;
   font-weight: bold;
@@ -12,25 +15,25 @@
   border-radius: 50px;
   background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff4b2b);
   background-size: 300% 300%;
-  box-shadow: 0 0 15px rgba(255, 65, 108, 0.6), 0 0 25px rgba(255, 75, 43, 0.5);
+  animation: gradientShift 5s ease infinite;
+  box-shadow: 0 0 15px rgba(255, 65, 108, 0.6);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   outline: none;
-  animation: gradientShift 5s ease infinite;
-  display: inline-block;
-  text-align: center;
   user-select: none;
 }
 
-.animated-button:hover,
-.animated-button:focus {
+.animated-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 65, 108, 0.8), 0 0 35px rgba(255, 75, 43, 0.7);
 }
 
 .animated-button:active {
   transform: scale(0.95);
-  box-shadow: 0 0 10px rgba(255, 65, 108, 0.4);
+}
+
+.fire-theme {
+  background: linear-gradient(45deg, #ffcc00, #ff6600, #ffcc00);
+  animation: fireShift 3s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -45,12 +48,60 @@
   }
 }
 
-/* Responsive tweaks */
+@keyframes fireShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.expanded-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.option-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  background-color: #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.option-button.whatsapp {
+  background-color: #25D366;
+  color: white;
+
+}
+
+.option-button.services {
+  background-color: #007bff;
+}
+
 @media (max-width: 600px) {
   .animated-button {
-    padding: 10px 20px;
     font-size: 14px;
-    bottom: 15%;      /* Adjusted slightly higher for smaller screens */
-    left: 10px;       /* Closer to the edge on mobile */
+    padding: 10px 20px;
+  }
+
+  .option-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .animated-button-wrapper {
+    bottom: 15%;
+    left: 10px;
   }
 }
