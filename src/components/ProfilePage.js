@@ -11,31 +11,40 @@ const ProfilePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const token = localStorage.getItem("access_token");
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem("access_token");
 
-        if (!token) {
-          setError("You must be logged in to view your profile.");
-          setLoading(false);
-          return;
-        }
+      if (!token) {
+        throw new Error("Select your serives and book your slot");
+      }
 
-        const response = await axios.get(` ${API_BASE_URL}/auth/profile/`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+      const response = await axios.get(`${API_BASE_URL}/auth/profile/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-        setProfile(response.data.user);
-      } catch (err) {
+      setProfile(response.data.user);
+    } catch (err) {
+      // Check if token is invalid or expired
+      if (
+        err.response?.status === 401 || // Unauthorized
+        err.response?.status === 403    // Forbidden
+      ) {
+        localStorage.clear();
+        sessionStorage.clear();
+        navigate("/"); // Redirect to login
+      } else {
         setError("Failed to load profile.");
         console.error("Profile Fetch Error:", err);
-      } finally {
-        setLoading(false);
       }
-    };
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchProfile();
-  }, []);
+  fetchProfile();
+}, [navigate]);
+
 
   const handleLogout = () => {
     localStorage.clear(); // Clears all stored data
