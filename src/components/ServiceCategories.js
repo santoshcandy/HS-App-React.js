@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
+import { Container, Card, Spinner, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../style/ServiceCategories.css";
 import API_BASE_URL from "../config";
 
-// Import icons
 import {
   FaTools,
   FaBolt,
@@ -16,15 +15,14 @@ import {
   FaCar,
 } from "react-icons/fa";
 
-// Icon map
 const iconMap = {
-  Plumbing: <FaWater className="service-icon" />,
-  Electrical: <FaBolt className="service-icon" />,
-  AC: <FaSnowflake className="service-icon" />,
-  HomeRepair: <FaTools className="service-icon" />,
-  Painting: <FaPaintRoller className="service-icon" />,
-  CarWash: <FaCar className="service-icon" />,
-  Default: <FaHome className="service-icon" />,
+  Plumbing: <FaWater className="category-icon" />,
+  Electrical: <FaBolt className="category-icon" />,
+  AC: <FaSnowflake className="category-icon" />,
+  HomeRepair: <FaTools className="category-icon" />,
+  Painting: <FaPaintRoller className="category-icon" />,
+  CarWash: <FaCar className="category-icon" />,
+  Default: <FaHome className="category-icon" />,
 };
 
 const API_URL = `${API_BASE_URL}/service-categories/`;
@@ -56,27 +54,27 @@ function ServiceCategories() {
   return (
     <Container>
       <h2 className="my-4 text-center">Service Categories</h2>
-      <Row className="g-4">
+      <div className="category-list">
         {categories.map((category) => (
-          <Col xs={4} sm={4} md={4} key={category.id} className="category-col">
-            <div
-              className="service-card"
-              onClick={() => navigate(`/category/${category.id}`)}
-            >
-              <div className="image-container">
-                {/* Replace image with icon while keeping same structure */}
-                {iconMap[category.name] || iconMap.Default}
-              </div>
-              <div className="card-body">
-                <Card.Text className="service-description">
-                  <span className="scrolling-text">{category.description}</span>
-                </Card.Text>
-                <h5 className="service-title">{category.name}</h5>
-              </div>
+          <div
+            className="category-card"
+            key={category.id}
+            onClick={() => navigate(`/category/${category.id}`)}
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && navigate(`/category/${category.id}`)}
+          >
+            <div className="category-image-container">
+              {iconMap[category.name] || iconMap.Default}
             </div>
-          </Col>
+            <div className="category-card-body">
+              <Card.Text className="category-description">
+                <span className="category-scrolling-text">{category.description}</span>
+              </Card.Text>
+              <h5 className="category-title">{category.name}</h5>
+            </div>
+          </div>
         ))}
-      </Row>
+      </div>
     </Container>
   );
 }

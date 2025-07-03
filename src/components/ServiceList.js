@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Card, Container, Row, Col, Spinner, Alert } from "react-bootstrap";
+import { Card, Container, Spinner, Alert } from "react-bootstrap";
 import axios from "axios";
- import "../style/ServiceList.css"; // Import the updated CSS
+import "../style/ServiceList.css";
 import API_BASE_URL from "../config";
 
 function ServiceList({ selectedServices, setSelectedServices }) {
@@ -13,7 +13,7 @@ function ServiceList({ selectedServices, setSelectedServices }) {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/service-categories/`) // Adjust URL as needed
+      .get(`${API_BASE_URL}/service-categories/`)
       .then((response) => {
         const data = response.data;
         const selectedCategory = data.find((cat) => cat.id.toString() === categoryId);
@@ -32,7 +32,6 @@ function ServiceList({ selectedServices, setSelectedServices }) {
   }, [categoryId]);
 
   const handleServiceSelect = (service) => {
-    // If service is already selected, remove it; otherwise, add it
     if (selectedServices.some((selected) => selected.id === service.id)) {
       setSelectedServices(selectedServices.filter((selected) => selected.id !== service.id));
     } else {
@@ -44,43 +43,43 @@ function ServiceList({ selectedServices, setSelectedServices }) {
   if (error) return <Alert variant="danger" className="text-center">{error}</Alert>;
 
   return (
-    <>
-       
-      <Container className="mb-5 pb-5">
-        <h2 className="my-4 text-center">{category.name} Services</h2>
-        <p className="text-center">{category.description}</p>
+    <Container className="mb-5 pb-5">
+      <h2 className="my-4 text-center">{category.name} Services</h2>
+      <p className="text-center">{category.description}</p>
 
-        <Row className="service-list">
-          {category.services.length > 0 ? (
-            category.services.map((service) => (
-              <Col xs={12} sm={6} md={4} key={service.id} className="category-col">
-                <Card
-                  className={`service-card ${selectedServices.some((selected) => selected.id === service.id) ? "selected" : ""}`}
-                  onClick={() => handleServiceSelect(service)} // Pass the entire service object
-                >
-                  <div className="image-container">
-                    <img
-                      src="https://tse1.mm.bing.net/th?id=OIP.XENqLPmzNiqIw31OiisFNwHaHa&pid=Api&P=0&h=220"
-                      alt={service.name}
-                      className="service-image"
-                    />
-                  </div>
-                  <Card.Body>
-                    <Card.Title className="service-title service-titlee">{service.name}</Card.Title>
-                    <Card.Text className="service-description scrolling-text">{service.description}</Card.Text>
-                    <h5 className="service-price">₹{service.price}</h5>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
-          ) : (
-            <Alert variant="warning" className="text-center w-100">
-              No services available for this category.
-            </Alert>
-          )}
-        </Row>
-      </Container>
-    </>
+      <div className="servicelist-grid">
+        {category.services.length > 0 ? (
+          category.services.map((service) => (
+            <Card
+              key={service.id}
+              className={`servicelist-card ${
+                selectedServices.some((selected) => selected.id === service.id) ? "selected" : ""
+              }`}
+              onClick={() => handleServiceSelect(service)}
+            >
+              <div className="servicelist-image-container">
+                <img
+                  src="https://tse1.mm.bing.net/th?id=OIP.XENqLPmzNiqIw31OiisFNwHaHa&pid=Api&P=0&h=220"
+                  alt={service.name}
+                  className="servicelist-image"
+                />
+              </div>
+              <Card.Body>
+                <Card.Title className="servicelist-title">{service.name}</Card.Title>
+                <Card.Text className="servicelist-description servicelist-scrolling-text">
+                  {service.description}
+                </Card.Text>
+                <h5 className="servicelist-price">₹{service.price}</h5>
+              </Card.Body>
+            </Card>
+          ))
+        ) : (
+          <Alert variant="warning" className="text-center w-100">
+            No services available for this category.
+          </Alert>
+        )}
+      </div>
+    </Container>
   );
 }
 
