@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Card, Container, Spinner, Alert } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
+import { Card, Container, Spinner, Alert, Button } from "react-bootstrap";
 import axios from "axios";
 import "../style/ServiceList.css";
 import API_BASE_URL from "../config";
+import { FaCheckCircle } from "react-icons/fa"; // ✅ Add this at the top
+  
 
 function ServiceList({ selectedServices, setSelectedServices }) {
   const { categoryId } = useParams();
+  const navigate = useNavigate(); // ✅ For navigation
   const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,6 +40,10 @@ function ServiceList({ selectedServices, setSelectedServices }) {
     } else {
       setSelectedServices([...selectedServices, service]);
     }
+  };
+
+  const handleViewSelected = () => {
+    navigate("/selected-services"); // ✅ Navigate to target page
   };
 
   if (loading) return <Spinner animation="border" className="d-block mx-auto mt-5" />;
@@ -79,6 +86,16 @@ function ServiceList({ selectedServices, setSelectedServices }) {
           </Alert>
         )}
       </div>
+
+      {selectedServices.length > 0 && (
+  <div className="text-center mt-4">
+    <Button variant="primary" onClick={handleViewSelected}>
+      <FaCheckCircle className="me-2" />
+      View Selected ({selectedServices.length})
+    </Button>
+  </div>
+)}
+
     </Container>
   );
 }
