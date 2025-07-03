@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/HS-App-React.js/static/css/main.2c04981b.css",
-    "main.js": "/HS-App-React.js/static/js/main.62549b2d.js",
+    "main.css": "/HS-App-React.js/static/css/main.73287de1.css",
+    "main.js": "/HS-App-React.js/static/js/main.b4416642.js",
     "static/js/488.1cde2e3c.chunk.js": "/HS-App-React.js/static/js/488.1cde2e3c.chunk.js",
+    "static/media/plumber.jpg": "/HS-App-React.js/static/media/plumber.157fd7ff387be8e66de7.jpg",
+    "static/media/pestcontrol.jfif": "/HS-App-React.js/static/media/pestcontrol.16e8d8b0f177fe00964b.jfif",
+    "static/media/gardening.jfif": "/HS-App-React.js/static/media/gardening.121bc3c5531b6c587fe3.jfif",
+    "static/media/painter.jfif": "/HS-App-React.js/static/media/painter.2ed0bc91ccba8737c7ee.jfif",
+    "static/media/ac.jfif": "/HS-App-React.js/static/media/ac.29ce38acb0556c0cb32f.jfif",
+    "static/media/carpenter.jfif": "/HS-App-React.js/static/media/carpenter.14fa1344717830cd40c8.jfif",
+    "static/media/ele.jfif": "/HS-App-React.js/static/media/ele.1d6e22f8c18b3b2ad724.jfif",
+    "static/media/cleaning.jfif": "/HS-App-React.js/static/media/cleaning.5306477b27fad3f6b78b.jfif",
     "index.html": "/HS-App-React.js/index.html",
-    "main.2c04981b.css.map": "/HS-App-React.js/static/css/main.2c04981b.css.map",
-    "main.62549b2d.js.map": "/HS-App-React.js/static/js/main.62549b2d.js.map",
+    "main.73287de1.css.map": "/HS-App-React.js/static/css/main.73287de1.css.map",
+    "main.b4416642.js.map": "/HS-App-React.js/static/js/main.b4416642.js.map",
     "488.1cde2e3c.chunk.js.map": "/HS-App-React.js/static/js/488.1cde2e3c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c04981b.css",
-    "static/js/main.62549b2d.js"
+    "static/css/main.73287de1.css",
+    "static/js/main.b4416642.js"
   ]
 }
