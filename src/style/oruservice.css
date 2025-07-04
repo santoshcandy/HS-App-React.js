@@ -1,7 +1,48 @@
-/* oruservice.css */
+.animated-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.5;
+  min-height: 60px;
+}
 
+/* Bounce animation for words */
+.word-bounce {
+  display: inline-block;
+  font-weight: bold;
+  animation: bounceIn 0.5s ease-out;
+  font-size: 1.8rem;
+}
+
+.big-word {
+  font-size: 2.2rem;
+}
+
+.small-word {
+  font-size: 1.6rem;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Rest of your flip card and container CSS remains same */
+
+
+/* Flip card styles remain same */
 .service-container {
-  perspective: 1000px; /* Creates 3D effect */
+  perspective: 1000px;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -10,6 +51,7 @@
   position: relative;
   width: 100%;
   height: 300px;
+  margin-top: 30px;
 }
 
 .flip-card {
@@ -51,7 +93,17 @@
   transform: rotateY(180deg);
 }
 
-/* Responsive adjustments */
+.fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 600px) {
   .flip-wrapper {
     height: 350px;
@@ -59,5 +111,9 @@
 
   .flip-card-content {
     padding: 15px;
+  }
+
+  .animated-title {
+    font-size: 22px;
   }
 }

@@ -1,8 +1,12 @@
 import React from "react";
 import "../style/warranty.css";
-import { FaShieldAlt, FaThumbsUp, FaCheckCircle } from "react-icons/fa";
+import { FaShieldAlt, FaThumbsUp } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
 
 const WarrantySection = () => {
+  const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
     <section className="warranty-section" id="warranty">
       <div className="container">
@@ -12,7 +16,10 @@ const WarrantySection = () => {
         </p>
 
         <div className="warranty-features">
-          <div className="warranty-card">
+          <div
+            ref={ref1}
+            className={`warranty-card animate-left ${inView1 ? "in-view" : ""}`}
+          >
             <FaShieldAlt className="warranty-icon" />
             <h3>Up to 30 Days Warranty</h3>
             <p>
@@ -20,9 +27,10 @@ const WarrantySection = () => {
             </p>
           </div>
 
-           
-
-          <div className="warranty-card">
+          <div
+            ref={ref2}
+            className={`warranty-card animate-right ${inView2 ? "in-view" : ""}`}
+          >
             <FaThumbsUp className="warranty-icon" />
             <h3>100% Satisfaction Guarantee</h3>
             <p>

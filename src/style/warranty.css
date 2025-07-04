@@ -63,3 +63,45 @@
     align-items: center;
   }
 }
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.animate-left.in-view {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+.animate-right.in-view {
+  animation: slideInRight 0.8s ease forwards;
+}

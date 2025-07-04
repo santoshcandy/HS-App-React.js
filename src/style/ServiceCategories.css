@@ -74,8 +74,8 @@
 /* ✅ For small screens (scale down sizes but keep 3 columns) */
 @media (max-width: 768px) {
   .category-image-container {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
   

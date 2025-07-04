@@ -2,6 +2,7 @@
 import React from 'react';
 import '../style/whychooseus.css';
 import { FaCheckCircle, FaMoneyBillWave, FaClock, FaHeadset } from 'react-icons/fa';
+import FeatureCard from './FeatureCard';
 
 const features = [
   {
@@ -32,11 +33,12 @@ const WhyChooseUs = () => {
       <h2 className="section-title">Why Choose Us?</h2>
       <div className="feature-list">
         {features.map((feature, index) => (
-          <div className="feature-card" key={index}>
-            <div className="icon">{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
+          <FeatureCard
+            key={index}
+            icon={feature.icon}
+            title={feature.title}
+            description={feature.description}
+          />
         ))}
       </div>
     </div>
