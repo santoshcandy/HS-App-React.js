@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/HS-App-React.js/static/css/main.73287de1.css",
-    "main.js": "/HS-App-React.js/static/js/main.b4416642.js",
+    "main.css": "/HS-App-React.js/static/css/main.2bce76c9.css",
+    "main.js": "/HS-App-React.js/static/js/main.4fa78265.js",
     "static/js/488.1cde2e3c.chunk.js": "/HS-App-React.js/static/js/488.1cde2e3c.chunk.js",
     "static/media/plumber.jpg": "/HS-App-React.js/static/media/plumber.157fd7ff387be8e66de7.jpg",
     "static/media/pestcontrol.jfif": "/HS-App-React.js/static/media/pestcontrol.16e8d8b0f177fe00964b.jfif",
@@ -12,12 +12,12 @@
     "static/media/ele.jfif": "/HS-App-React.js/static/media/ele.1d6e22f8c18b3b2ad724.jfif",
     "static/media/cleaning.jfif": "/HS-App-React.js/static/media/cleaning.5306477b27fad3f6b78b.jfif",
     "index.html": "/HS-App-React.js/index.html",
-    "main.73287de1.css.map": "/HS-App-React.js/static/css/main.73287de1.css.map",
-    "main.b4416642.js.map": "/HS-App-React.js/static/js/main.b4416642.js.map",
+    "main.2bce76c9.css.map": "/HS-App-React.js/static/css/main.2bce76c9.css.map",
+    "main.4fa78265.js.map": "/HS-App-React.js/static/js/main.4fa78265.js.map",
     "488.1cde2e3c.chunk.js.map": "/HS-App-React.js/static/js/488.1cde2e3c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73287de1.css",
-    "static/js/main.b4416642.js"
+    "static/css/main.2bce76c9.css",
+    "static/js/main.4fa78265.js"
   ]
 }
