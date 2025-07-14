@@ -21,7 +21,7 @@ const QuickSupport = () => {
             <FaWhatsapp /> WhatsApp Booking
           </a>
 
-          <a href="tel:+917395906604" className="support-btn call">
+          <a href="tel:+918015153921" className="support-btn call">
             <FaPhoneAlt /> Call Now
           </a>
 

@@ -25,8 +25,8 @@ const Footer = () => {
         <div className="footer-section contact-info">
           <h3>Contact Info</h3>
           <ul>
-            <li><FaPhoneAlt /> +91 7395906604</li>
-            <li><FaEnvelope /> info@triplespot.com</li>
+            <li><FaPhoneAlt /> +91 8015153921</li>
+            <li><FaEnvelope /> triplespot.in@gmail.com</li>
           </ul>
         </div>
 
