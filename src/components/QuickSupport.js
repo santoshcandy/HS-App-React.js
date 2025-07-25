@@ -13,7 +13,7 @@ const QuickSupport = () => {
 
         <div className="support-buttons">
           <a
-            href="https://wa.me/918015153921" // Replace with real WhatsApp number
+            href="https://wa.me/919176765545?text=Hi%20triplespot.in%2C%20I%20need%20help%20with%20a%20service."
             target="_blank"
             rel="noopener noreferrer"
             className="support-btn whatsapp"
@@ -21,13 +21,13 @@ const QuickSupport = () => {
             <FaWhatsapp /> WhatsApp Booking
           </a>
 
-          <a href="tel:+918015153921" className="support-btn call">
+          <a href="tel:+919176765545" className="support-btn call">
             <FaPhoneAlt /> Call Now
           </a>
 
-          <a  className="support-btn chat">
+          {/* <a className="support-btn chat">
             <FaComments /> Live Chat
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

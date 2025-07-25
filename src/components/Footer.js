@@ -25,8 +25,9 @@ const Footer = () => {
         <div className="footer-section contact-info">
           <h3>Contact Info</h3>
           <ul>
-            <li><FaPhoneAlt /> +91 8015153921</li>
+            <li><FaPhoneAlt /> +91 9176765545</li>
             <li><FaEnvelope /> triplespot.in@gmail.com</li>
+            <li>32B, Kamarajar Nagar 1st Street, TVK Nagar, Jawahar Nagar, Chennai - 600082</li>
           </ul>
         </div>
 
