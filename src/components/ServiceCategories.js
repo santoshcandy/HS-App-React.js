@@ -56,7 +56,7 @@ function ServiceCategories() {
     return <Alert variant="danger" className="text-center">{error}</Alert>;
 
   return (
-    <Container>
+    <Container className="my-5">
       <h2 className="my-4 text-center">Service Categories</h2>
       <div className="category-list">
        {categories.map((category) => (
@@ -76,9 +76,10 @@ function ServiceCategories() {
 
     </div>
     <div className="category-card-body">
-      <Card.Text className="category-description">
+    <Card.Text className="category-description">
         <span className="category-scrolling-text">{category.description}</span>
       </Card.Text>
+      
       <h5 className="category-title">{category.name}</h5>
     </div>
   </div>

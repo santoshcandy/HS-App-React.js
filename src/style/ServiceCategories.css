@@ -15,7 +15,7 @@
   padding: 10px;
   cursor: pointer;
   border: 2px solid transparent;
-  box-shadow: 0px 4px 10px rgba(26, 58, 111, 0.2);
+  /* box-shadow: 0px 4px 10px rgba(26, 58, 111, 0.2); */
   background-color: #fff;
   padding-bottom: 30px;
 }
@@ -63,13 +63,15 @@
 }
 
 .category-description {
-  font-size: 12px;
+  font-size: 13px;
   color: #080808;
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  
 }
+
 
 /* ✅ For small screens (scale down sizes but keep 3 columns) */
 @media (max-width: 768px) {
@@ -85,7 +87,7 @@
   }
 
   .category-description {
-    font-size: 9px;
+    font-size: 13px;
   }
 
   .category-card {
