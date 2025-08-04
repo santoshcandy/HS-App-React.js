@@ -8,7 +8,6 @@ const BookingForm = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Set the current time directly into a hidden field
     const timeInput = form.current.querySelector('input[name="time"]');
     if (timeInput) {
       timeInput.value = new Date().toLocaleString();
@@ -16,10 +15,10 @@ const BookingForm = () => {
 
     emailjs
       .sendForm(
-        "service_cznjs7k",          // service ID
-        "template_q2itmqn",         // template ID
-        form.current,               // ✅ send the HTML form
-        "MYsu1vt7lujJ8g9bU"         // public key
+        "service_cznjs7k",           // ✅ EmailJS service ID
+        "template_q2itmqn",          // ✅ Template ID
+        form.current,
+        "MYsu1vt7lujJ8g9bU"          // ✅ Public key
       )
       .then(() => {
         alert("✅ Booking sent successfully!");
@@ -34,10 +33,11 @@ const BookingForm = () => {
     <div className="container booking-form p-4 mt-4 shadow rounded-4">
       <h2 className="text-center mb-4">Official Triplespot Service Booking</h2>
       <p className="form-subtext">Only trained & trusted technicians</p>
+      
       <form ref={form} onSubmit={sendEmail}>
         <div className="mb-3">
           <label className="form-label">Full Name</label>
-          <input type="text" name="user_name" className="form-control" required />
+          <input type="text" name="name" className="form-control" required />
         </div>
 
         <div className="mb-3">
@@ -48,6 +48,11 @@ const BookingForm = () => {
         <div className="mb-3">
           <label className="form-label">Phone Number</label>
           <input type="tel" name="user_phone" className="form-control" required />
+        </div>
+
+        <div className="mb-3">
+          <label className="form-label">Email (optional)</label>
+          <input type="email" name="email" className="form-control" />
         </div>
 
         <div className="mb-3">
@@ -73,8 +78,8 @@ const BookingForm = () => {
         </div>
 
         {/* Hidden fields */}
-        <input type="hidden" name="email" value="msanthosh11062003@gmail.com" />
         <input type="hidden" name="time" />
+        <input type="hidden" name="title" value="services" />
 
         <button type="submit" className="btn btn-primary w-100 mt-3">
           Submit Booking
