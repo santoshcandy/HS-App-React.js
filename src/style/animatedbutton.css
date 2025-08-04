@@ -1,3 +1,4 @@
+/* 🔵 Animated Button Container */
 .animated-button-wrapper {
   position: fixed;
   bottom: 20%;
@@ -6,60 +7,64 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* ✨ Blue-Gold Shine Effect Main Button */
 .animated-button {
+  position: relative;
   padding: 14px 40px;
   font-size: 22px;
   font-weight: bold;
   color: white;
   border: none;
   border-radius: 50px;
-  background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff4b2b);
-  background-size: 300% 300%;
-  animation: gradientShift 5s ease infinite;
-  box-shadow: 0 0 15px rgba(255, 65, 108, 0.6);
-  transition: all 0.3s ease-in-out;
+  background: #004080;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 89, 179, 0.5);
   cursor: pointer;
   outline: none;
   user-select: none;
+  z-index: 1;
 }
 
+/* 💫 Thin Gold Shine Animation Overlay */
+.animated-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.3) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: goldShine 4s linear infinite;
+  z-index: 2;
+}
+
+/* ✨ Hover/Click Effects */
 .animated-button:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 15px gold, 0 0 10px #0059b3;
 }
 
 .animated-button:active {
   transform: scale(0.95);
 }
 
-.fire-theme {
-  background: linear-gradient(45deg, #ffcc00, #ff6600, #ffcc00);
-  animation: fireShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
+/* 🌟 Gold Shine Animation */
+@keyframes goldShine {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    transform: translateX(-100%) translateY(-100%) rotate(25deg);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translateX(100%) translateY(100%) rotate(25deg);
   }
 }
 
-@keyframes fireShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* 🎯 Toggle Option Buttons */
 .expanded-options {
   display: flex;
   flex-direction: column;
@@ -79,24 +84,30 @@
   transition: all 0.3s ease;
 }
 
+/* ✅ WhatsApp */
 .option-button.whatsapp {
   background-color: #25D366;
-  color: white;
-
 }
 
+/* 📞 Services */
 .option-button.services {
   background-color: #007bff;
 }
 
+/* ☎️ Call Now */
+.option-button.call {
+  background-color: #2E86C1;
+}
+
+/* 📱 Responsive Design */
 @media (max-width: 600px) {
   .animated-button {
-    font-size: 14px;
+    font-size: 20px;
     padding: 10px 20px;
   }
 
   .option-button {
-    font-size: 14px;
+    font-size: 18px;
     padding: 8px 16px;
   }
 
