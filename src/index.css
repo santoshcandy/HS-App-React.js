@@ -1,9 +1,24 @@
-*{
-margin: 0;
+/* 🔥 FULL APP BACKGROUND */
+body {
+  margin: 0;
   padding: 0;
-  box-sizing: border-box;
+
+  background: radial-gradient(
+    circle at top,
+    #ff78189c 0%,
+    #b91c1c9a 35%,
+    #11182771 85%
+  );
+
+  min-height: 100vh;
+  color: #ffffff;
 }
 
+/* Root container (React) */
+#root {
+  min-height: 100vh;
+  background: transparent;
+}
 html,body {
   
   width: 100%;

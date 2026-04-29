@@ -3,55 +3,80 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #1A3A6F; /* Deep Blue */
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 10px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 9px 0;
   z-index: 999;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
+
+  background: radial-gradient(circle at top, #ff7a18 0%, #b91c1c 38%, #111827 90%) !important;
+  box-shadow: 0 -8px 30px rgba(255, 69, 0, 0.32);
+  border-radius: 22px 22px 0 0;
 }
 
 /* Navbar Items */
 .nav-item {
-  color: #C9A24D; /* Gold Text */
-  text-decoration: none;
-  text-align: center;
-  font-size: 16px;
   flex: 1;
-  padding: 8px;
+  padding: 8px 0;
+  text-align: center;
+  text-decoration: none;
+  color: #ffe4c7;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.25s ease;
 }
 
 .nav-item i {
-  font-size: 24px;
-  margin-bottom: 4px;
   display: block;
+  font-size: 21px;
+  margin-bottom: 3px;
+  color: inherit;
 }
 
+/* Hover */
 .nav-item:hover {
-  color: #E0CBA8; /* Light Gold/White */
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
+/* Active Item */
 .nav-item.active {
-  color: #E0CBA8; /* Light Gold/White */
-  font-weight: bold;
+  color: #ffffff;
+  font-weight: 800;
 }
 
-/* Mobile Responsive Styles */
+.nav-item.active i {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Optional glossy active background */
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  margin: 0 6px;
+}
+
+/* Content Area */
+.container,
+.Container {
+  padding-bottom: 80px;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .bottom-nav {
-    padding: 8px 0;
+    padding: 7px 0;
   }
 
   .nav-item {
-    font-size: 14px;
-    padding: 10px 0;
+    font-size: 12px;
+    padding: 9px 0;
   }
 
   .nav-item i {
     font-size: 20px;
-    margin-bottom: 4px;
   }
 }
 
@@ -61,30 +86,11 @@
   }
 
   .nav-item {
-    font-size: 12px;
-    padding: 12px 0;
+    font-size: 11px;
+    padding: 9px 0;
   }
 
   .nav-item i {
     font-size: 18px;
-    margin-bottom: 2px;
-  }
-}
-
-/* Content Area (Ensure it's not hidden behind the navbar) */
-Container {
-  padding-bottom: 60px; /* Adjust this to match the navbar height */
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  Container {
-    padding-bottom: 70px; /* Adjust for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  Container {
-    padding-bottom: 80px; /* Adjust for very small screens */
   }
 }

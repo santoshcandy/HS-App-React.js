@@ -31,7 +31,7 @@ const BookingForm = () => {
 
   return (
     <div className="container booking-form p-4 mt-4 shadow rounded-4">
-      <h2 className="text-center mb-4">Official Triplespot Service Booking</h2>
+      <h2 className="text-center mb-4">Booking</h2>
       <p className="form-subtext">Only trained & trusted technicians</p>
       
       <form ref={form} onSubmit={sendEmail}>

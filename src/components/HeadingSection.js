@@ -1,27 +1,9 @@
 import React, { useState, useMemo } from "react";
-import { FaUserCircle, FaSearch } from "react-icons/fa";
+import { FaUserCircle, FaSearch, FaTools } from "react-icons/fa";
 import "../style/HeadingSection.css";
 import { Link, useNavigate } from "react-router-dom";
 import Fuse from "fuse.js";
 import { searchableRoutes } from "../routesConfig";
- 
-const TSLogoSVG = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="100" cy="100" r="90" fill="#1A3A6F" />
-    <text
-      x="50%"
-      y="55%"
-      dominantBaseline="middle"
-      textAnchor="middle"
-      fontSize="70"
-      fontWeight="bold"
-      fill="#C9A24D"
-      fontFamily="Arial, sans-serif"
-    >
-      TS
-    </text>
-  </svg>
-);
 
 const HeadingSection = () => {
   const navigate = useNavigate();
@@ -38,65 +20,59 @@ const HeadingSection = () => {
 
   const handleSelect = (path) => {
     navigate(path);
-    setQuery(""); // Optional: clear after navigation
+    setQuery("");
   };
 
   const goToProfile = () => navigate("/profile");
 
   return (
-    <header className="header-container container-fluid">
-      <div className="row align-items-center justify-content-between">
-        <Link to="/" className="col-8 brand-text" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <span className="brand-highlight">TRIPLE SPOT</span>
-          <br />
-          <span className="brand-sub">Home Services – Chennai</span>
-        </Link>
-        <Link to="/" className="col-4 d-flex justify-content-end logo">
-          <TSLogoSVG />
-        </Link>
-      </div>
-
-      <div className="row align-items-center justify-content-between mt-2">
-        {/* Search Section */}
-        <div className="col-10 position-relative">
-          <div className="search-wrapper active">
-            <FaSearch className="search-icon" size={16} />
-            <input
-              type="text"
-              placeholder="Search services in Chennai..."
-              className="search-input"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              aria-label="Search services"
-            />
+    <header className="ohj-header">
+      <div className="ohj-top">
+        <Link to="/" className="ohj-brand">
+          <div className="ohj-logo">
+            <FaTools />
           </div>
 
-          {query && (
-            <ul className="search-suggestions">
-              {results.length > 0 ? (
-                results.map(({ item }, idx) => (
-                  <li key={idx} onClick={() => handleSelect(item.path)}>{item.name}</li>
-                ))
-              ) : (
-                <li>No matches found</li>
-              )}
-            </ul>
-          )}
+          <div>
+            <h1>OnHandJob</h1>
+            <p>Home Services</p>
+          </div>
+        </Link>
+
+        <button
+          className="ohj-profile-btn"
+          onClick={goToProfile}
+          aria-label="Go to profile"
+        >
+          <FaUserCircle />
+        </button>
+      </div>
+
+      <div className="ohj-search-area">
+        <div className="ohj-search-box">
+          <FaSearch className="ohj-search-icon" />
+          <input
+            type="text"
+            placeholder="Search plumbing, RO, electrical..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search services"
+          />
         </div>
 
-        {/* Profile Icon */}
-        <div
-          className="col-2 d-flex justify-content-end profile-icon"
-          onClick={goToProfile}
-          style={{ cursor: "pointer" }}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") goToProfile();
-          }}
-        >
-          <FaUserCircle size={24} />
-        </div>
+        {query && (
+          <ul className="ohj-suggestions">
+            {results.length > 0 ? (
+              results.map(({ item }, idx) => (
+                <li key={idx} onClick={() => handleSelect(item.path)}>
+                  {item.name}
+                </li>
+              ))
+            ) : (
+              <li className="ohj-no-result">No matches found</li>
+            )}
+          </ul>
+        )}
       </div>
     </header>
   );
